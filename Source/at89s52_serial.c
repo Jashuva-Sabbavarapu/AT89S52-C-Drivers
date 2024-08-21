@@ -3,10 +3,10 @@
 static void intToStr(int num, char *str);
 /*
  * at89s52_serial.c
- * Description: This file contains the functions to configure and send/receive data using UART
- * Author: Jashuva
- * Date: June 20, 2024
- * License: Open source
+ * Description:     This file contains the functions to configure and send/receive data using UART
+ * Author:          Jashuva
+ * Date:            June 20, 2024
+ * License:         Open source
  */
 
 /*
