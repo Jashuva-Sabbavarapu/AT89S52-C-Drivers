@@ -85,29 +85,6 @@ uint8_t timerFlag(uint8_t Tx);
 void timerStop(uint8_t Tx);
 
 /*
- *@fn        -   getTimerInit
- *
- *@brief     -   Function to configure the timer for getTimer function
- *
- *@param[1]  -   Selecting the Timer 0 or 1
- *@param[2]  -   Value for selecting ms or us
- *
- *return     -   void
- */
-void getTimerInit(uint8_t Tx, uint8_t timer);
-
-/*
- *@fn        -   getTimer
- *
- *@brief     -   Function to get the current time in milliseconds
- *
- @param[1]   -   void
- *
- *return     -   uint32_t
- */
-uint32_t getTimer(void);
-
-/*
  *@fn        -   delay_us
  *
  *@brief     -   Function to generate 1us delay
