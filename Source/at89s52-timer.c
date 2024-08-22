@@ -9,12 +9,6 @@
 // Library for function declarations
 #include "at89s52_timer.h"
 
-static uint32_t global_counter = 0;
-static uint16_t count = 0;
-
-static void timer0_ISR(void) __interrupt(TIMER0_VECTOR);
-static void timer1_ISR(void) __interrupt(TIMER1_VECTOR);
-
 /*
  *@fn        -   timerConfig
  *
@@ -208,52 +202,6 @@ void timerStop(uint8_t Tx)
 }
 
 /*
- *@fn        -   getTimerInit
- *
- *@brief     -   Function to configure the timer for getTimer function
- *
- *@param[1]  -   Selecting the Timer 0 or 1
- *@param[2]  -   Value for selecting ms or us
- *
- *return     -   void
- */
-void getTimerInit(uint8_t Tx, uint8_t timer)
-{
-	if(timer == MS)
-	{
-		count = ((1 * CLOCK_SOURCE) / (1000 * 12));
-    	count = (65536 - count);
-
-    	timerInterruptConfig(Tx, count, ENABLE);
-	}
-	else if(timer == US)
-	{
-		count = ((1 * CLOCK_SOURCE) / (1000000 * 12));
-    	count = (65536 - count);
-
-    	timerInterruptConfig(Tx, count, ENABLE);
-	}
-}
-
-/*
- *@fn        -   getTimer
- *
- *@brief     -   Function to get the current time in milliseconds
- *
- @param[1]   -   void
- *
- *return     -   uint32_t
- */
-uint32_t getTimer(void)
-{
-	uint32_t temp_counter = 0;
-	EA = 0;
-	temp_counter = global_counter;
-	EA = 1;
-	return temp_counter;
-}
-
-/*
  *@fn        -   delay_us
  *
  *@brief     -   Function to generate 1us delay
@@ -323,15 +271,4 @@ void delay_ms(uint32_t ms)
         TF0 = 0;  // Clear TF0 bit to 0
         ms--;
     }
-}
-
-static void timer0_ISR(void) __interrupt(TIMER0_VECTOR)
-{
-	timerLoad(T0, count);
-	global_counter++;
-}
-static void timer1_ISR(void) __interrupt(TIMER1_VECTOR)
-{
-	timerLoad(T1, count);
-	global_counter++;
 }
