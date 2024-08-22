@@ -5,7 +5,7 @@ This repository contains driver code written in Embedded C for the AT89S52 micro
 ## Repository Structure
 
 The repository is organized as follows:
-.
+
 ├── Header/                 # Contains header files (.h) for the drivers
 │   ├── at89s52.h           # Main header file for the AT89S52 microcontroller
 │   ├── at89s52_gpio.h      # GPIO driver header file
