@@ -4,9 +4,9 @@
 /*
  * at89s52_gpio.h
  * Description: This header files contains function declaration for at89s52_gpio.c file
- * Author: 		Jashuva
- * Date: 		june 20, 2024
- * License: 	Open source
+ * Author: 		  Jashuva
+ * Date: 		    june 20, 2024
+ * License: 	  Open source
  */
 
 // Library for AT89S52 MCU, contains mnemounics for SFR's  
